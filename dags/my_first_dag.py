@@ -1,6 +1,7 @@
 import random
 import datetime as dt
 
+
 from airflow.models import DAG
 from airflow.operators.python import PythonOperator
 
