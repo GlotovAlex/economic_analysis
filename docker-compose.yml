@@ -99,10 +99,10 @@ services:
       - "9000:9000"     # API и доступ к данным
       - "9001:9001"     # Веб-интерфейс и администрирование
     volumes:
-      - ~/minio/data:/data
+      - ~/data/minio:/data
     environment:
       - MINIO_ROOT_USER=admin
-      - MINIO_ROOT_PASSWORD=admin
+      - MINIO_ROOT_PASSWORD=password123456
     command: server /data --console-address :9001
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
