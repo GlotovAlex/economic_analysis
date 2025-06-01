@@ -59,6 +59,7 @@ services:
     user: "${AIRFLOW_UID:-0}:0"
     environment:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__SCHEDULER__MAX_CATCHUP_RUNS=2000
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-postgres/airflow
     volumes:
       - ./dags:/opt/airflow/dags
