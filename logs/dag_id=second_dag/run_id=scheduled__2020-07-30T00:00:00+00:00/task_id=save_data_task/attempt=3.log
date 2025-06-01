@@ -1,0 +1,24 @@
+[2025-06-01T10:59:14.817+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: second_dag.save_data_task scheduled__2020-07-30T00:00:00+00:00 [queued]>
+[2025-06-01T10:59:14.827+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: second_dag.save_data_task scheduled__2020-07-30T00:00:00+00:00 [queued]>
+[2025-06-01T10:59:14.827+0000] {taskinstance.py:1308} INFO - Starting attempt 3 of 3
+[2025-06-01T10:59:14.842+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): save_data_task> on 2020-07-30 00:00:00+00:00
+[2025-06-01T10:59:14.849+0000] {standard_task_runner.py:57} INFO - Started process 14370 to run task
+[2025-06-01T10:59:14.860+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'second_dag', 'save_data_task', 'scheduled__2020-07-30T00:00:00+00:00', '--job-id', '673', '--raw', '--subdir', 'DAGS_FOLDER/my_second_dag.py', '--cfg-path', '/tmp/tmpxhgidm_9']
+[2025-06-01T10:59:14.862+0000] {standard_task_runner.py:85} INFO - Job 673: Subtask save_data_task
+[2025-06-01T10:59:14.914+0000] {task_command.py:410} INFO - Running <TaskInstance: second_dag.save_data_task scheduled__2020-07-30T00:00:00+00:00 [running]> on host 27c4b93144a0
+[2025-06-01T10:59:15.164+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='second_dag' AIRFLOW_CTX_TASK_ID='save_data_task' AIRFLOW_CTX_EXECUTION_DATE='2020-07-30T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2020-07-30T00:00:00+00:00'
+[2025-06-01T10:59:15.174+0000] {my_second_dag.py:50} INFO - Fetching value USD: None
+[2025-06-01T10:59:15.182+0000] {base.py:73} INFO - Using connection ID 'pg_database' for task execution.
+[2025-06-01T10:59:15.182+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/my_second_dag.py", line 59, in save_data_to_db
+    conn = engine(db_url)
+TypeError: 'module' object is not callable
+[2025-06-01T10:59:15.189+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=second_dag, task_id=save_data_task, execution_date=20200730T000000, start_date=20250601T105914, end_date=20250601T105915
+[2025-06-01T10:59:15.199+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 673 for task save_data_task ('module' object is not callable; 14370)
+[2025-06-01T10:59:15.231+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2025-06-01T10:59:15.246+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

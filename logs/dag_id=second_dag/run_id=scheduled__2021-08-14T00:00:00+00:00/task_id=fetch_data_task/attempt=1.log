@@ -1,0 +1,16 @@
+[2025-06-01T16:27:36.519+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: second_dag.fetch_data_task scheduled__2021-08-14T00:00:00+00:00 [queued]>
+[2025-06-01T16:27:36.541+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: second_dag.fetch_data_task scheduled__2021-08-14T00:00:00+00:00 [queued]>
+[2025-06-01T16:27:36.542+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2025-06-01T16:27:36.565+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): fetch_data_task> on 2021-08-14 00:00:00+00:00
+[2025-06-01T16:27:36.573+0000] {standard_task_runner.py:57} INFO - Started process 38914 to run task
+[2025-06-01T16:27:36.577+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'second_dag', 'fetch_data_task', 'scheduled__2021-08-14T00:00:00+00:00', '--job-id', '1866', '--raw', '--subdir', 'DAGS_FOLDER/my_second_dag.py', '--cfg-path', '/tmp/tmpio75z25r']
+[2025-06-01T16:27:36.579+0000] {standard_task_runner.py:85} INFO - Job 1866: Subtask fetch_data_task
+[2025-06-01T16:27:36.655+0000] {task_command.py:410} INFO - Running <TaskInstance: second_dag.fetch_data_task scheduled__2021-08-14T00:00:00+00:00 [running]> on host 27c4b93144a0
+[2025-06-01T16:27:37.027+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='second_dag' AIRFLOW_CTX_TASK_ID='fetch_data_task' AIRFLOW_CTX_EXECUTION_DATE='2021-08-14T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2021-08-14T00:00:00+00:00'
+[2025-06-01T16:27:37.035+0000] {logging_mixin.py:150} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:313 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2025-06-01T16:27:37.035+0000] {my_second_dag.py:22} INFO - execution_date : 2021-08-14T00:00:00+00:00
+[2025-06-01T16:27:37.035+0000] {my_second_dag.py:24} INFO - Fetching data for date: 14/08/2021
+[2025-06-01T16:27:37.101+0000] {python.py:183} INFO - Done. Returned value was: 73.4721
+[2025-06-01T16:27:37.171+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=second_dag, task_id=fetch_data_task, execution_date=20210814T000000, start_date=20250601T162736, end_date=20250601T162737
+[2025-06-01T16:27:37.284+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-06-01T16:27:37.310+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,18 @@
+[2025-06-01T11:04:27.990+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: second_dag.save_data_task scheduled__2020-08-29T00:00:00+00:00 [queued]>
+[2025-06-01T11:04:28.015+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: second_dag.save_data_task scheduled__2020-08-29T00:00:00+00:00 [queued]>
+[2025-06-01T11:04:28.016+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2025-06-01T11:04:28.181+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): save_data_task> on 2020-08-29 00:00:00+00:00
+[2025-06-01T11:04:28.193+0000] {standard_task_runner.py:57} INFO - Started process 15660 to run task
+[2025-06-01T11:04:28.197+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'second_dag', 'save_data_task', 'scheduled__2020-08-29T00:00:00+00:00', '--job-id', '741', '--raw', '--subdir', 'DAGS_FOLDER/my_second_dag.py', '--cfg-path', '/tmp/tmprox0ocp8']
+[2025-06-01T11:04:28.199+0000] {standard_task_runner.py:85} INFO - Job 741: Subtask save_data_task
+[2025-06-01T11:04:28.296+0000] {task_command.py:410} INFO - Running <TaskInstance: second_dag.save_data_task scheduled__2020-08-29T00:00:00+00:00 [running]> on host 27c4b93144a0
+[2025-06-01T11:04:28.639+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='second_dag' AIRFLOW_CTX_TASK_ID='save_data_task' AIRFLOW_CTX_EXECUTION_DATE='2020-08-29T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2020-08-29T00:00:00+00:00'
+[2025-06-01T11:04:28.659+0000] {my_second_dag.py:50} INFO - Fetching value USD: None
+[2025-06-01T11:04:28.671+0000] {base.py:73} INFO - Using connection ID 'pg_database' for task execution.
+[2025-06-01T11:04:28.692+0000] {my_second_dag.py:63} INFO - Check conn:                                              version
+0  PostgreSQL 13.20 (Debian 13.20-1.pgdg120+1) on...
+[2025-06-01T11:04:28.692+0000] {logging_mixin.py:150} INFO - Data saved successfully.
+[2025-06-01T11:04:28.693+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-06-01T11:04:28.709+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=second_dag, task_id=save_data_task, execution_date=20200829T000000, start_date=20250601T110427, end_date=20250601T110428
+[2025-06-01T11:04:28.766+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-06-01T11:04:28.783+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check
