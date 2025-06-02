@@ -1,0 +1,17 @@
+[2025-06-01T18:00:12.951+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: second_dag.save_data_task scheduled__2001-07-30T00:00:00+00:00 [queued]>
+[2025-06-01T18:00:13.030+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: second_dag.save_data_task scheduled__2001-07-30T00:00:00+00:00 [queued]>
+[2025-06-01T18:00:13.030+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2025-06-01T18:00:13.040+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): save_data_task> on 2001-07-30 00:00:00+00:00
+[2025-06-01T18:00:13.046+0000] {standard_task_runner.py:57} INFO - Started process 16691 to run task
+[2025-06-01T18:00:13.049+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'second_dag', 'save_data_task', 'scheduled__2001-07-30T00:00:00+00:00', '--job-id', '5805', '--raw', '--subdir', 'DAGS_FOLDER/my_second_dag.py', '--cfg-path', '/tmp/tmpjckiinct']
+[2025-06-01T18:00:13.050+0000] {standard_task_runner.py:85} INFO - Job 5805: Subtask save_data_task
+[2025-06-01T18:00:13.081+0000] {task_command.py:410} INFO - Running <TaskInstance: second_dag.save_data_task scheduled__2001-07-30T00:00:00+00:00 [running]> on host 40869fde016f
+[2025-06-01T18:00:13.141+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='second_dag' AIRFLOW_CTX_TASK_ID='save_data_task' AIRFLOW_CTX_EXECUTION_DATE='2001-07-30T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2001-07-30T00:00:00+00:00'
+[2025-06-01T18:00:13.149+0000] {my_second_dag.py:51} INFO - Fetching value USD: 29.25
+[2025-06-01T18:00:13.155+0000] {base.py:73} INFO - Using connection ID 'pg_database' for task execution.
+[2025-06-01T18:00:13.162+0000] {logging_mixin.py:150} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:313 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2025-06-01T18:00:13.164+0000] {my_second_dag.py:69} INFO - Data saved successfully.
+[2025-06-01T18:00:13.164+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-06-01T18:00:13.170+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=second_dag, task_id=save_data_task, execution_date=20010730T000000, start_date=20250601T180012, end_date=20250601T180013
+[2025-06-01T18:00:13.221+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-06-01T18:00:13.233+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check
