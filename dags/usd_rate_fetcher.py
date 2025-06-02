@@ -28,10 +28,9 @@ def fetch_data_from_api(**kwargs):
     
     response = requests.get(url)
     
-    if response.status_code != 200:
-        raise Exception(f"API request failed with status {response.status_code}")
+    response.raise_for_status()
     
-    xml_data = response.text  # или .text / .content — зависит от ответа 
+    xml_data = response.text 
 
     df = pd.read_xml(io.StringIO(xml_data), parser='etree').query('Name == "Доллар США"')['Value']
     
@@ -58,10 +57,16 @@ def save_data_to_db(**kwargs):
     cursor = conn.cursor()
 
     cursor.execute("""
-        INSERT INTO economic.usd_to_rub_rates (date, value)
-        VALUES (%s, %s)
-    """, (execution_date.date(), data))
-    conn.commit()
+        SELECT 1 FROM economic.usd_to_rub_rates WHERE date = %s
+    """, (execution_date.date(),))
+
+    if cursor.fetchone():
+        logger.warning("Rate already exists for date %s", execution_date.date())
+    else:
+        cursor.execute("""
+            INSERT INTO economic.usd_to_rub_rates (date, value)
+            VALUES (%s, %s)
+        """, (execution_date.date(), data))
 
     logger.info("Saving exchange rate %.2f for date %s", data, execution_date.date())
 
@@ -82,13 +87,22 @@ with DAG(
     fetch_task = PythonOperator(
         task_id='fetch_data_task',
         python_callable=fetch_data_from_api,
-        provide_context=True,
     )
 
     save_task = PythonOperator(
         task_id='save_data_task',
         python_callable=save_data_to_db,
-        provide_context=True,
     )
 
 fetch_task >> save_task
+
+
+
+# import xml.etree.ElementTree as ET
+
+# root = ET.fromstring(xml_data)
+# for valute in root.findall('Valute'):
+#     name = valute.find('Name').text
+#     if name == 'Доллар США':
+#         value = float(valute.find('Value').text.replace(',', '.'))
+#         return value
