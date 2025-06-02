@@ -5,7 +5,7 @@ import datetime as dt
 import pandas as pd
 from sqlalchemy import create_engine, text
 
-from airflow.hooks.base_hook import BaseHook
+from airflow.hooks.postgres_hook import PostgresHook
 from airflow.models import DAG
 from airflow.operators.python import PythonOperator
 
@@ -43,6 +43,7 @@ def fetch_data_from_api(**kwargs):
 # Функция для записи в БД
 def save_data_to_db(**kwargs):
     ti = kwargs['ti']
+    # Получаем данные их XCom
     data = ti.xcom_pull(task_ids='fetch_data_task')
 
     # Получаем execution_date из контекста
@@ -51,22 +52,17 @@ def save_data_to_db(**kwargs):
     logger.info(f"Fetching value USD: {data}")
 
     # Получаем connection из Airflow по его conn_id
-    connection = BaseHook.get_connection('pg_database')
+    hook = PostgresHook(postgres_conn_id='pg_database')
+    conn = hook.get_conn()
+    cursor = conn.cursor()
 
-    # Формируем URL подключения
-    db_url = f"postgresql://{connection.login}:{connection.password}@" \
-             f"{connection.host}:{connection.port}/{connection.schema}"
+    cursor.execute("""
+        INSERT INTO economic.usd_to_rub_rates (date, value)
+        VALUES (%s, %s)
+    """, (execution_date.date(), data))
+    conn.commit()
 
-    engine = create_engine(db_url)
-   
-    with engine.connect() as conn:
-        conn.execute(
-            text(f"""INSERT INTO economic.usd_to_rub_rates (date, value)
-                 VALUES ('{execution_date.date()}', {data})""")
-        )
-        # conn.commit()
-
-    logger.info("Data saved successfully.")
+    logger.info("Saving exchange rate %.2f for date %s", data, execution_date.date())
 
 default_args = {
     'owner': 'airflow',
