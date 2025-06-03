@@ -1,0 +1,273 @@
+[2025-06-03T09:16:52.295+0000] {processor.py:157} INFO - Started process (PID=169) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:16:52.295+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:16:52.296+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:16:52.296+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:16:52.774+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:16:52.802+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:16:52.802+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:16:52.818+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:16:52.818+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:16:52.830+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.538 seconds
+[2025-06-03T09:17:23.044+0000] {processor.py:157} INFO - Started process (PID=209) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:17:23.045+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:17:23.045+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:17:23.045+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:17:23.440+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:17:23.458+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:17:23.458+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:17:23.478+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:17:23.478+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:17:23.492+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.451 seconds
+[2025-06-03T09:17:53.693+0000] {processor.py:157} INFO - Started process (PID=696) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:17:53.693+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:17:53.694+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:17:53.694+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:17:54.034+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:17:54.051+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:17:54.050+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:17:54.067+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:17:54.067+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:17:54.086+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.396 seconds
+[2025-06-03T09:18:24.249+0000] {processor.py:157} INFO - Started process (PID=1531) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:18:24.250+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:18:24.251+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:18:24.251+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:18:24.642+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:18:24.658+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:18:24.658+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:18:24.673+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:18:24.673+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:18:24.684+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.438 seconds
+[2025-06-03T09:18:54.921+0000] {processor.py:157} INFO - Started process (PID=2266) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:18:54.922+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:18:54.923+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:18:54.923+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:18:55.562+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:18:55.599+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:18:55.599+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:18:55.627+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:18:55.626+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:18:55.646+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.728 seconds
+[2025-06-03T09:19:25.872+0000] {processor.py:157} INFO - Started process (PID=2675) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:19:25.873+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:19:25.873+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:19:25.873+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:19:26.234+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:19:26.252+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:19:26.251+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:19:26.266+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:19:26.266+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:19:26.278+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.408 seconds
+[2025-06-03T09:19:56.394+0000] {processor.py:157} INFO - Started process (PID=2714) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:19:56.395+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:19:56.395+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:19:56.395+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:19:56.742+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:19:56.759+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:19:56.759+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:19:56.777+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:19:56.777+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:19:56.789+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.397 seconds
+[2025-06-03T09:20:26.916+0000] {processor.py:157} INFO - Started process (PID=2753) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:20:26.917+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:20:26.917+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:20:26.917+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:20:27.278+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:20:27.295+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:20:27.295+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:20:27.311+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:20:27.311+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:20:27.328+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.414 seconds
+[2025-06-03T09:20:57.429+0000] {processor.py:157} INFO - Started process (PID=2792) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:20:57.430+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:20:57.430+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:20:57.430+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:20:57.788+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:20:57.806+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:20:57.806+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:20:57.823+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:20:57.823+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:20:57.844+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.417 seconds
+[2025-06-03T09:21:27.956+0000] {processor.py:157} INFO - Started process (PID=2831) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:21:27.957+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:21:27.957+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:21:27.957+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:21:28.317+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:21:28.335+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:21:28.335+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:21:28.356+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:21:28.356+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:21:28.367+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.413 seconds
+[2025-06-03T09:21:58.478+0000] {processor.py:157} INFO - Started process (PID=2870) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:21:58.478+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:21:58.479+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:21:58.479+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:21:58.862+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:21:58.881+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:21:58.880+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:21:58.898+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:21:58.897+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:21:58.910+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.434 seconds
+[2025-06-03T09:22:29.025+0000] {processor.py:157} INFO - Started process (PID=2909) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:22:29.026+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:22:29.026+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:22:29.026+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:22:29.387+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:22:29.404+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:22:29.404+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:22:29.421+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:22:29.421+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:22:29.433+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.410 seconds
+[2025-06-03T09:22:59.549+0000] {processor.py:157} INFO - Started process (PID=2948) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:22:59.550+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:22:59.550+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:22:59.550+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:22:59.932+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:22:59.949+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:22:59.949+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:22:59.966+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:22:59.966+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:22:59.978+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.431 seconds
+[2025-06-03T09:23:30.085+0000] {processor.py:157} INFO - Started process (PID=2987) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:23:30.086+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:23:30.086+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:23:30.086+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:23:30.457+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:23:30.475+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:23:30.474+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:23:30.493+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:23:30.493+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:23:30.505+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.422 seconds
+[2025-06-03T09:24:00.607+0000] {processor.py:157} INFO - Started process (PID=3026) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:24:00.610+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:24:00.611+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:24:00.611+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:24:00.979+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:24:00.997+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:24:00.997+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:24:01.014+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:24:01.014+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:24:01.035+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.430 seconds
+[2025-06-03T09:24:31.143+0000] {processor.py:157} INFO - Started process (PID=3065) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:24:31.144+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:24:31.144+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:24:31.144+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:24:31.528+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:24:31.547+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:24:31.547+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:24:31.565+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:24:31.565+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:24:31.577+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.435 seconds
+[2025-06-03T09:25:01.687+0000] {processor.py:157} INFO - Started process (PID=3104) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:25:01.688+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:25:01.688+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:25:01.688+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:25:02.074+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:25:02.092+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:25:02.091+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:25:02.109+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:25:02.108+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:25:02.129+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.444 seconds
+[2025-06-03T09:25:32.243+0000] {processor.py:157} INFO - Started process (PID=3143) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:25:32.244+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:25:32.245+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:25:32.244+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:25:32.627+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:25:32.646+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:25:32.645+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:25:32.663+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:25:32.663+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:25:32.675+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.434 seconds
+[2025-06-03T09:26:02.774+0000] {processor.py:157} INFO - Started process (PID=3182) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:26:02.774+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:26:02.775+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:26:02.775+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:26:03.167+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:26:03.183+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:26:03.183+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:26:03.201+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:26:03.200+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:26:03.213+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.441 seconds
+[2025-06-03T09:26:33.324+0000] {processor.py:157} INFO - Started process (PID=3221) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:26:33.327+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:26:33.327+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:26:33.327+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:26:33.705+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:26:33.723+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:26:33.723+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:26:33.740+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:26:33.740+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:26:33.752+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.431 seconds
+[2025-06-03T09:27:03.889+0000] {processor.py:157} INFO - Started process (PID=3274) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:27:03.890+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:27:03.891+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:27:03.890+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:27:04.239+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:27:04.256+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:27:04.256+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:27:04.273+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:27:04.273+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:27:04.284+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.398 seconds
+[2025-06-03T09:27:34.425+0000] {processor.py:157} INFO - Started process (PID=3761) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:27:34.426+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:27:34.426+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:27:34.426+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:27:34.733+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:27:34.748+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:27:34.748+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:27:34.763+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:27:34.762+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:27:34.774+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.351 seconds
+[2025-06-03T09:28:04.851+0000] {processor.py:157} INFO - Started process (PID=3800) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:28:04.851+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:28:04.852+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:28:04.852+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:28:05.178+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:28:05.194+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:28:05.193+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:28:05.209+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:28:05.209+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:28:05.220+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.372 seconds
+[2025-06-03T09:28:35.307+0000] {processor.py:157} INFO - Started process (PID=3839) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:28:35.308+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:28:35.308+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:28:35.308+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:28:35.625+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:28:35.642+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:28:35.641+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:28:35.658+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:28:35.658+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:28:35.669+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.365 seconds
+[2025-06-03T09:29:05.762+0000] {processor.py:157} INFO - Started process (PID=3878) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:29:05.764+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:29:05.765+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:29:05.764+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:29:06.089+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:29:06.104+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:29:06.104+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:29:06.120+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:29:06.120+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:29:06.139+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.378 seconds
+[2025-06-03T09:29:36.225+0000] {processor.py:157} INFO - Started process (PID=3917) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:29:36.232+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:29:36.233+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:29:36.233+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:29:36.552+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:29:36.570+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:29:36.570+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:29:36.589+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:29:36.588+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:29:36.602+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.379 seconds
+[2025-06-03T09:30:06.685+0000] {processor.py:157} INFO - Started process (PID=3956) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:30:06.685+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:30:06.686+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:30:06.686+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:30:07.008+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:30:07.025+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:30:07.024+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:30:07.041+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:30:07.041+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:30:07.052+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.370 seconds
+[2025-06-03T09:30:37.107+0000] {processor.py:157} INFO - Started process (PID=3995) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:30:37.114+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:30:37.115+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:30:37.114+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:30:37.417+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:30:37.432+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:30:37.432+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:30:37.447+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:30:37.447+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:30:37.466+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.361 seconds
+[2025-06-03T09:31:07.543+0000] {processor.py:157} INFO - Started process (PID=4034) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:31:07.550+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:31:07.550+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:31:07.550+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:31:07.874+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:31:07.892+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:31:07.892+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:31:07.909+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:31:07.909+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:31:07.921+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.380 seconds
+[2025-06-03T09:31:38.010+0000] {processor.py:157} INFO - Started process (PID=4073) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:31:38.011+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:31:38.011+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:31:38.011+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:31:38.326+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:31:38.342+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:31:38.341+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:31:38.357+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:31:38.357+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:31:38.367+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.360 seconds
+[2025-06-03T09:32:08.453+0000] {processor.py:157} INFO - Started process (PID=4112) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:32:08.459+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:32:08.460+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:32:08.460+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:32:08.805+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:32:08.823+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:32:08.823+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:32:08.840+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:32:08.840+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:32:08.851+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.400 seconds
+[2025-06-03T09:32:39.001+0000] {processor.py:157} INFO - Started process (PID=5021) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:32:39.002+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:32:39.002+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:32:39.002+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:32:39.372+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:32:39.389+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:32:39.388+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:32:39.403+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:32:39.403+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:32:39.415+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.416 seconds
+[2025-06-03T09:33:09.473+0000] {processor.py:157} INFO - Started process (PID=6769) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:33:09.477+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:33:09.478+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:33:09.478+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:33:10.038+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:33:10.069+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:33:10.069+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:33:10.100+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:33:10.099+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:33:10.129+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.658 seconds
+[2025-06-03T09:33:40.601+0000] {processor.py:157} INFO - Started process (PID=8743) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:33:40.602+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:33:40.603+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:33:40.602+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:33:40.913+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:33:40.928+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:33:40.927+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:33:40.944+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:33:40.944+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:33:40.954+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.355 seconds
+[2025-06-03T09:34:11.084+0000] {processor.py:157} INFO - Started process (PID=9495) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:34:11.084+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:34:11.085+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:34:11.085+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:34:11.401+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:34:11.417+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:34:11.417+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:34:11.434+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:34:11.434+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:34:11.445+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.363 seconds
+[2025-06-03T09:34:41.547+0000] {processor.py:157} INFO - Started process (PID=9534) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:34:41.548+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:34:41.548+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:34:41.548+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:34:41.858+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:34:41.875+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:34:41.875+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:34:41.891+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:34:41.891+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:34:41.902+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.358 seconds
+[2025-06-03T09:35:12.010+0000] {processor.py:157} INFO - Started process (PID=9965) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:35:12.017+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:35:12.018+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:35:12.018+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:35:12.326+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:35:12.342+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:35:12.342+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:35:12.357+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:35:12.357+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:35:12.371+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.363 seconds
+[2025-06-03T09:35:42.523+0000] {processor.py:157} INFO - Started process (PID=10352) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:35:42.523+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:35:42.524+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:35:42.524+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:35:43.142+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:35:43.196+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:35:43.195+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:35:43.243+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:35:43.243+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:35:43.271+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.751 seconds
+[2025-06-03T09:36:13.724+0000] {processor.py:157} INFO - Started process (PID=11205) to work on /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:36:13.725+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/archive/usd_rate_fetcher.py for tasks to queue
+[2025-06-03T09:36:13.725+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:36:13.725+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:36:14.073+0000] {processor.py:836} INFO - DAG(s) dict_keys(['usd_rate_fetcher']) retrieved from /opt/airflow/dags/archive/usd_rate_fetcher.py
+[2025-06-03T09:36:14.091+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:36:14.091+0000] {dag.py:2742} INFO - Sync 1 DAGs
+[2025-06-03T09:36:14.109+0000] {logging_mixin.py:150} INFO - [2025-06-03T09:36:14.108+0000] {dag.py:3508} INFO - Setting next_dagrun for usd_rate_fetcher to 2000-01-01T00:00:00+00:00, run_after=2000-01-02T00:00:00+00:00
+[2025-06-03T09:36:14.120+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/archive/usd_rate_fetcher.py took 0.399 seconds

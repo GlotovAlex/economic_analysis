@@ -1,0 +1,55 @@
+[2025-06-03T09:17:33.175+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: usd_rate_fetcher_taskflow.fetch_data_from_api scheduled__2000-01-16T00:00:00+00:00 [queued]>
+[2025-06-03T09:17:33.181+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: usd_rate_fetcher_taskflow.fetch_data_from_api scheduled__2000-01-16T00:00:00+00:00 [queued]>
+[2025-06-03T09:17:33.181+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2025-06-03T09:17:33.191+0000] {taskinstance.py:1327} INFO - Executing <Task(_PythonDecoratedOperator): fetch_data_from_api> on 2000-01-16 00:00:00+00:00
+[2025-06-03T09:17:33.195+0000] {standard_task_runner.py:57} INFO - Started process 468 to run task
+[2025-06-03T09:17:33.197+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'usd_rate_fetcher_taskflow', 'fetch_data_from_api', 'scheduled__2000-01-16T00:00:00+00:00', '--job-id', '7407', '--raw', '--subdir', 'DAGS_FOLDER/usd_rate_fetcher.py', '--cfg-path', '/tmp/tmpgdhi4rmr']
+[2025-06-03T09:17:33.199+0000] {standard_task_runner.py:85} INFO - Job 7407: Subtask fetch_data_from_api
+[2025-06-03T09:17:33.229+0000] {task_command.py:410} INFO - Running <TaskInstance: usd_rate_fetcher_taskflow.fetch_data_from_api scheduled__2000-01-16T00:00:00+00:00 [running]> on host 40869fde016f
+[2025-06-03T09:17:33.356+0000] {logging_mixin.py:150} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:205 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2025-06-03T09:17:33.381+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='usd_rate_fetcher_taskflow' AIRFLOW_CTX_TASK_ID='fetch_data_from_api' AIRFLOW_CTX_EXECUTION_DATE='2000-01-16T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2000-01-16T00:00:00+00:00'
+[2025-06-03T09:17:33.381+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/decorators/base.py", line 220, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/usd_rate_fetcher.py", line 30, in fetch_data_from_api
+    date_str = execution_date.strftime("%d/%m/%Y")
+AttributeError: 'str' object has no attribute 'strftime'
+[2025-06-03T09:17:33.387+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=usd_rate_fetcher_taskflow, task_id=fetch_data_from_api, execution_date=20000116T000000, start_date=20250603T091733, end_date=20250603T091733
+[2025-06-03T09:17:33.393+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 7407 for task fetch_data_from_api ('str' object has no attribute 'strftime'; 468)
+[2025-06-03T09:17:33.410+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2025-06-03T09:17:33.427+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-03T09:34:46.522+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: usd_rate_fetcher_taskflow.fetch_data_from_api scheduled__2000-01-16T00:00:00+00:00 [queued]>
+[2025-06-03T09:34:46.533+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: usd_rate_fetcher_taskflow.fetch_data_from_api scheduled__2000-01-16T00:00:00+00:00 [queued]>
+[2025-06-03T09:34:46.533+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2025-06-03T09:34:46.558+0000] {taskinstance.py:1327} INFO - Executing <Task(_PythonDecoratedOperator): fetch_data_from_api> on 2000-01-16 00:00:00+00:00
+[2025-06-03T09:34:46.571+0000] {standard_task_runner.py:57} INFO - Started process 9925 to run task
+[2025-06-03T09:34:46.579+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'usd_rate_fetcher_taskflow', 'fetch_data_from_api', 'scheduled__2000-01-16T00:00:00+00:00', '--job-id', '7984', '--raw', '--subdir', 'DAGS_FOLDER/usd_rate_fetcher.py', '--cfg-path', '/tmp/tmpqjtl_i0w']
+[2025-06-03T09:34:46.581+0000] {standard_task_runner.py:85} INFO - Job 7984: Subtask fetch_data_from_api
+[2025-06-03T09:34:46.647+0000] {task_command.py:410} INFO - Running <TaskInstance: usd_rate_fetcher_taskflow.fetch_data_from_api scheduled__2000-01-16T00:00:00+00:00 [running]> on host 40869fde016f
+[2025-06-03T09:34:46.833+0000] {logging_mixin.py:150} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:205 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2025-06-03T09:34:46.868+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='usd_rate_fetcher_taskflow' AIRFLOW_CTX_TASK_ID='fetch_data_from_api' AIRFLOW_CTX_EXECUTION_DATE='2000-01-16T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2000-01-16T00:00:00+00:00'
+[2025-06-03T09:34:46.869+0000] {usd_rate_fetcher.py:34} INFO - Fetching data for date: 16/01/2000
+[2025-06-03T09:34:46.944+0000] {python.py:183} INFO - Done. Returned value was: 28.57
+[2025-06-03T09:34:46.966+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=usd_rate_fetcher_taskflow, task_id=fetch_data_from_api, execution_date=20000116T000000, start_date=20250603T093446, end_date=20250603T093446
+[2025-06-03T09:34:47.003+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-06-03T09:34:47.025+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-03T09:35:42.666+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: usd_rate_fetcher_taskflow.fetch_data_from_api scheduled__2000-01-16T00:00:00+00:00 [queued]>
+[2025-06-03T09:35:42.684+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: usd_rate_fetcher_taskflow.fetch_data_from_api scheduled__2000-01-16T00:00:00+00:00 [queued]>
+[2025-06-03T09:35:42.685+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2025-06-03T09:35:42.743+0000] {taskinstance.py:1327} INFO - Executing <Task(_PythonDecoratedOperator): fetch_data_from_api> on 2000-01-16 00:00:00+00:00
+[2025-06-03T09:35:42.752+0000] {standard_task_runner.py:57} INFO - Started process 10382 to run task
+[2025-06-03T09:35:42.769+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'usd_rate_fetcher_taskflow', 'fetch_data_from_api', 'scheduled__2000-01-16T00:00:00+00:00', '--job-id', '8012', '--raw', '--subdir', 'DAGS_FOLDER/usd_rate_fetcher.py', '--cfg-path', '/tmp/tmp3i0g3m9r']
+[2025-06-03T09:35:42.771+0000] {standard_task_runner.py:85} INFO - Job 8012: Subtask fetch_data_from_api
+[2025-06-03T09:35:42.846+0000] {task_command.py:410} INFO - Running <TaskInstance: usd_rate_fetcher_taskflow.fetch_data_from_api scheduled__2000-01-16T00:00:00+00:00 [running]> on host 40869fde016f
+[2025-06-03T09:35:42.997+0000] {logging_mixin.py:150} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:205 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2025-06-03T09:35:43.156+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='usd_rate_fetcher_taskflow' AIRFLOW_CTX_TASK_ID='fetch_data_from_api' AIRFLOW_CTX_EXECUTION_DATE='2000-01-16T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2000-01-16T00:00:00+00:00'
+[2025-06-03T09:35:43.162+0000] {usd_rate_fetcher.py:34} INFO - Fetching data for date: 16/01/2000
+[2025-06-03T09:35:43.436+0000] {python.py:183} INFO - Done. Returned value was: 28.57
+[2025-06-03T09:35:43.467+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=usd_rate_fetcher_taskflow, task_id=fetch_data_from_api, execution_date=20000116T000000, start_date=20250603T093542, end_date=20250603T093543
+[2025-06-03T09:35:43.544+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-06-03T09:35:43.575+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check
