@@ -1,9 +1,12 @@
 import requests
-import io
+# import io
 import logging
 import datetime as dt
 import pandas as pd
+import json
+import xml.etree.ElementTree as ET
 
+from airflow.models import Variable
 from airflow.decorators import dag, task
 from airflow.hooks.postgres_hook import PostgresHook
 
@@ -12,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 # Определение DAG с помощью декоратора @dag
 @dag(
-    dag_id='usd_rate_fetcher',
+    dag_id='rates_fetcher',
     schedule_interval='@daily',
     start_date=dt.datetime(2000, 1, 1),
     catchup=True,
@@ -23,13 +26,29 @@ logger = logging.getLogger(__name__)
     },
     tags=['exchange_rates'],
 )
-def usd_rate_dag():
+def rate_dag():
 
     @task()
     def fetch_data_from_api(execution_date: str):
+        
+        logger.info(f'Переменная {Variable.get("currencies")}')
 
+        # Получение переменной
+        try:
+            currencies = Variable.get("currencies")
+        except Exception as e:
+            raise ValueError("Ошибка десериализации переменной 'currencies'") from e
+
+        # Дата выполнения
         execution_date = dt.datetime.fromisoformat(execution_date)
+        
+        # Словарь для сбора данных
+        data = {
+            'date': execution_date.date(),
+            'content': list()
+        }
 
+        # Получение данных через API за указанную дату
         date_str = execution_date.strftime("%d/%m/%Y")
         logger.info(f"Fetching data for date: {date_str}")
 
@@ -38,34 +57,50 @@ def usd_rate_dag():
         response.raise_for_status()
 
         xml_data = response.text
-        df = pd.read_xml(io.StringIO(xml_data), parser='etree').query('Name == "Доллар США"')['Value']
-        data = float(df.values[0].replace(',', '.'))
+
+        root = ET.fromstring(xml_data)
+        for valute in root.findall('Valute'):
+            CharCode = valute.find('CharCode').text
+            if CharCode in currencies:
+                value = float(valute.find('VunitRate').text.replace(',', '.'))
+                data['content'].append({CharCode: value})
 
         return data
     
     @task()
     def save_data_to_db(data, execution_date: str):
+        """
+        Сохраняет данные по нескольким валютам за одну дату в БД
+        :param data: словарь с ключами 'date' и 'content'
+        """
 
-        execution_date = dt.datetime.fromisoformat(execution_date)
+        execution_date = data['date']
+        rates = data['content']
 
-        logger.info(f"Received USD rate: {data} for date {execution_date.date()}")
+        logger.info(f"Received USD rate: {data} for date {execution_date}")
 
         hook = PostgresHook(postgres_conn_id='pg_database')
         conn = hook.get_conn()
         cursor = conn.cursor()
 
-        cursor.execute("""
-            SELECT 1 FROM economic.usd_to_rub_rates WHERE date = %s
-        """, (execution_date.date(),))
+        for rate_dict in rates:
+            
+            currency, value = next(iter(rate_dict.items()))
 
-        if cursor.fetchone():
-            logger.warning("Rate already exists for date %s", execution_date.date())
-        else:
+            # Проверка существования записи
             cursor.execute("""
-                INSERT INTO economic.usd_to_rub_rates (date, value)
-                VALUES (%s, %s)
-            """, (execution_date.date(), data))
-            logger.info("Saving exchange rate %.2f for date %s", data, execution_date.date())
+                SELECT 1 FROM economic.currency_rates 
+                WHERE date = %s AND currency = %s
+            """, (execution_date, currency))
+
+            if cursor.fetchone():
+                logger.warning("Rate for %s already exists for date %s", currency, execution_date)
+            else:
+                cursor.execute("""
+                    INSERT INTO economic.currency_rates (date, currency, value)
+                    VALUES (%s, %s, %s)
+                """, (execution_date, currency, value))
+                logger.info("Saved %.2f for %s on %s", value, currency, execution_date)
 
         conn.commit()
 
@@ -75,4 +110,4 @@ def usd_rate_dag():
 
 
 # Регистрация DAG
-usd_rate_dag = usd_rate_dag()
+rate_dag = rate_dag()

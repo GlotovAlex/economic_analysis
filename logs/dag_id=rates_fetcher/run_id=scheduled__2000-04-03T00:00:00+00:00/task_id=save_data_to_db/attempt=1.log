@@ -1,0 +1,19 @@
+[2025-06-03T15:54:29.096+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: rates_fetcher.save_data_to_db scheduled__2000-04-03T00:00:00+00:00 [queued]>
+[2025-06-03T15:54:29.103+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: rates_fetcher.save_data_to_db scheduled__2000-04-03T00:00:00+00:00 [queued]>
+[2025-06-03T15:54:29.104+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2025-06-03T15:54:29.115+0000] {taskinstance.py:1327} INFO - Executing <Task(_PythonDecoratedOperator): save_data_to_db> on 2000-04-03 00:00:00+00:00
+[2025-06-03T15:54:29.120+0000] {standard_task_runner.py:57} INFO - Started process 3814 to run task
+[2025-06-03T15:54:29.122+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'rates_fetcher', 'save_data_to_db', 'scheduled__2000-04-03T00:00:00+00:00', '--job-id', '9271', '--raw', '--subdir', 'DAGS_FOLDER/usd_rate_fetcher.py', '--cfg-path', '/tmp/tmpixlux472']
+[2025-06-03T15:54:29.123+0000] {standard_task_runner.py:85} INFO - Job 9271: Subtask save_data_to_db
+[2025-06-03T15:54:29.161+0000] {task_command.py:410} INFO - Running <TaskInstance: rates_fetcher.save_data_to_db scheduled__2000-04-03T00:00:00+00:00 [running]> on host 40869fde016f
+[2025-06-03T15:54:29.234+0000] {logging_mixin.py:150} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:205 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2025-06-03T15:54:29.278+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='rates_fetcher' AIRFLOW_CTX_TASK_ID='save_data_to_db' AIRFLOW_CTX_EXECUTION_DATE='2000-04-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2000-04-03T00:00:00+00:00'
+[2025-06-03T15:54:29.279+0000] {usd_rate_fetcher.py:80} INFO - Received USD rate: {'date': datetime.date(2000, 4, 3), 'content': [{'GBP': 45.58}, {'USD': 28.6}, {'EUR': 27.4}]} for date 2000-04-03
+[2025-06-03T15:54:29.286+0000] {base.py:73} INFO - Using connection ID 'pg_database' for task execution.
+[2025-06-03T15:54:29.290+0000] {usd_rate_fetcher.py:103} INFO - Saved 45.58 for GBP on 2000-04-03
+[2025-06-03T15:54:29.291+0000] {usd_rate_fetcher.py:103} INFO - Saved 28.60 for USD on 2000-04-03
+[2025-06-03T15:54:29.291+0000] {usd_rate_fetcher.py:103} INFO - Saved 27.40 for EUR on 2000-04-03
+[2025-06-03T15:54:29.292+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-06-03T15:54:29.300+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=rates_fetcher, task_id=save_data_to_db, execution_date=20000403T000000, start_date=20250603T155429, end_date=20250603T155429
+[2025-06-03T15:54:29.335+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-06-03T15:54:29.349+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

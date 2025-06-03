@@ -1,0 +1,32 @@
+[2025-06-03T15:20:20.498+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: usd_rate_fetcher.fetch_data_from_api scheduled__2020-03-06T00:00:00+00:00 [queued]>
+[2025-06-03T15:20:20.507+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: usd_rate_fetcher.fetch_data_from_api scheduled__2020-03-06T00:00:00+00:00 [queued]>
+[2025-06-03T15:20:20.507+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2025-06-03T15:20:20.569+0000] {taskinstance.py:1327} INFO - Executing <Task(_PythonDecoratedOperator): fetch_data_from_api> on 2020-03-06 00:00:00+00:00
+[2025-06-03T15:20:20.580+0000] {standard_task_runner.py:57} INFO - Started process 15544 to run task
+[2025-06-03T15:20:20.587+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'usd_rate_fetcher', 'fetch_data_from_api', 'scheduled__2020-03-06T00:00:00+00:00', '--job-id', '8727', '--raw', '--subdir', 'DAGS_FOLDER/usd_rate_fetcher.py', '--cfg-path', '/tmp/tmpuci3krg_']
+[2025-06-03T15:20:20.589+0000] {standard_task_runner.py:85} INFO - Job 8727: Subtask fetch_data_from_api
+[2025-06-03T15:20:20.641+0000] {task_command.py:410} INFO - Running <TaskInstance: usd_rate_fetcher.fetch_data_from_api scheduled__2020-03-06T00:00:00+00:00 [running]> on host 40869fde016f
+[2025-06-03T15:20:20.896+0000] {logging_mixin.py:150} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:205 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2025-06-03T15:20:20.936+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='usd_rate_fetcher' AIRFLOW_CTX_TASK_ID='fetch_data_from_api' AIRFLOW_CTX_EXECUTION_DATE='2020-03-06T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2020-03-06T00:00:00+00:00'
+[2025-06-03T15:20:20.945+0000] {usd_rate_fetcher.py:34} INFO - Переменная ['Доллар США', 'Евро', 'Гонконгский доллар', 'Юань', 'Фунт стерлингов']
+[2025-06-03T15:20:20.950+0000] {usd_rate_fetcher.py:53} INFO - Fetching data for date: 06/03/2020
+[2025-06-03T15:20:20.995+0000] {python.py:183} INFO - Done. Returned value was: {'date': datetime.date(2020, 3, 6), 'content': [{'Фунт стерлингов': 85.399}, {'Доллар США': 66.1854}, {'Евро': 73.6842}]}
+[2025-06-03T15:20:21.029+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=usd_rate_fetcher, task_id=fetch_data_from_api, execution_date=20200306T000000, start_date=20250603T152020, end_date=20250603T152021
+[2025-06-03T15:20:21.079+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-06-03T15:20:21.105+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-03T15:29:35.958+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: usd_rate_fetcher.fetch_data_from_api scheduled__2020-03-06T00:00:00+00:00 [queued]>
+[2025-06-03T15:29:35.968+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: usd_rate_fetcher.fetch_data_from_api scheduled__2020-03-06T00:00:00+00:00 [queued]>
+[2025-06-03T15:29:35.968+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2025-06-03T15:29:35.985+0000] {taskinstance.py:1327} INFO - Executing <Task(_PythonDecoratedOperator): fetch_data_from_api> on 2020-03-06 00:00:00+00:00
+[2025-06-03T15:29:36.006+0000] {standard_task_runner.py:57} INFO - Started process 17885 to run task
+[2025-06-03T15:29:36.015+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'usd_rate_fetcher', 'fetch_data_from_api', 'scheduled__2020-03-06T00:00:00+00:00', '--job-id', '8866', '--raw', '--subdir', 'DAGS_FOLDER/usd_rate_fetcher.py', '--cfg-path', '/tmp/tmpplc6w0c1']
+[2025-06-03T15:29:36.018+0000] {standard_task_runner.py:85} INFO - Job 8866: Subtask fetch_data_from_api
+[2025-06-03T15:29:36.141+0000] {task_command.py:410} INFO - Running <TaskInstance: usd_rate_fetcher.fetch_data_from_api scheduled__2020-03-06T00:00:00+00:00 [running]> on host 40869fde016f
+[2025-06-03T15:29:36.370+0000] {logging_mixin.py:150} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:205 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2025-06-03T15:29:36.420+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='usd_rate_fetcher' AIRFLOW_CTX_TASK_ID='fetch_data_from_api' AIRFLOW_CTX_EXECUTION_DATE='2020-03-06T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2020-03-06T00:00:00+00:00'
+[2025-06-03T15:29:36.439+0000] {usd_rate_fetcher.py:34} INFO - Переменная ['USD', 'EUR', 'HKD', 'CNY', 'GBP']
+[2025-06-03T15:29:36.457+0000] {usd_rate_fetcher.py:53} INFO - Fetching data for date: 06/03/2020
+[2025-06-03T15:29:36.509+0000] {python.py:183} INFO - Done. Returned value was: {'date': datetime.date(2020, 3, 6), 'content': [{'GBP': 85.399}, {'HKD': 85.1741}, {'USD': 66.1854}, {'EUR': 73.6842}, {'CNY': 95.3392}]}
+[2025-06-03T15:29:36.586+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=usd_rate_fetcher, task_id=fetch_data_from_api, execution_date=20200306T000000, start_date=20250603T152935, end_date=20250603T152936
+[2025-06-03T15:29:36.637+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2025-06-03T15:29:36.667+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check
