@@ -1,5 +1,4 @@
 import requests
-# import io
 import logging
 import datetime as dt
 import pandas as pd
@@ -12,6 +11,7 @@ from airflow.hooks.postgres_hook import PostgresHook
 
 # Логгер
 logger = logging.getLogger(__name__)
+
 
 # Определение DAG с помощью декоратора @dag
 @dag(
@@ -33,7 +33,7 @@ def rate_dag():
         """
         Получает данные по указанным валютам за одну дату
         """
-        
+
         logger.info(f'Запрос данных для валют {Variable.get("currencies")}')
 
         # Получение переменной
@@ -80,7 +80,7 @@ def rate_dag():
         execution_date = data['date']
         rates = data['content']
 
-        logger.info(f"Получены курсы валют: {', '.join(data['content'].keys())} на дату {execution_date}")
+        logger.info(f"Получены курсы валют: {data['content']} на дату {execution_date}")
 
         hook = PostgresHook(postgres_conn_id='pg_database')
         conn = hook.get_conn()

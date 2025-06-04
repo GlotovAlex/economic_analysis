@@ -41,10 +41,12 @@ services:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-postgres/airflow
       - AIRFLOW__WEBSERVER__WEB_SERVER_PORT=8080
+      - AIRFLOW__CORE__PYTHON_PATH=/opt/airflow/utils
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
+      - ./utils:/opt/airflow/utils
     ports:
       - "8080:8080"
     command: bash -c "airflow db init && airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password admin && airflow webserver"
@@ -61,10 +63,12 @@ services:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__SCHEDULER__MAX_CATCHUP_RUNS=2000
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-postgres/airflow
+      - AIRFLOW__CORE__PYTHON_PATH=/opt/airflow/utils
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
+      - ./utils:/opt/airflow/utils
     depends_on:
       - airflow-webserver
       - postgres
