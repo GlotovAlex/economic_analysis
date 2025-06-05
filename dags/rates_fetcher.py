@@ -26,6 +26,7 @@ logger = logging.getLogger(__name__)
     },
     tags=['exchange_rates'],
 )
+
 def rate_dag():
 
     @task()
@@ -71,7 +72,7 @@ def rate_dag():
         return data
     
     @task()
-    def save_data_to_db(data, execution_date: str):
+    def save_data_to_db(data):
         """
         Сохраняет данные по нескольким валютам за одну дату в БД
         :param data: словарь с ключами 'date' и 'content'
@@ -109,7 +110,7 @@ def rate_dag():
 
     # Установка зависимостей
     fetched_data = fetch_data_from_api(execution_date="{{ execution_date }}")
-    save_data_to_db(fetched_data, execution_date="{{ execution_date }}")
+    save_data_to_db(fetched_data)
 
 
 # Регистрация DAG
