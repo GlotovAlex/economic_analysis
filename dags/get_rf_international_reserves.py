@@ -91,7 +91,48 @@ def inter_reserves():
 
 
         # При желании можно преобразовать колонку "Дата" в datetime
-        df['Дата'] = pd.to_datetime(df['Дата'])
+        # df['Дата'] = pd.to_datetime(df['Дата'])
+
+        return df.to_dict()
+    
+    @task()
+    def save_data_to_db(data):
+        """
+        Сохраняет данные по нескольким в БД
+        :param data: словарь c данными из датафрейма
+        """
+
+        values_to_db = [
+            (dt.datetime.fromisoformat(data['Дата'][i]).date(),
+             data['Значение'][i]) for i in range(len(data['Дата']))
+            ]
+
+        logger.info(
+            f"Получены данные на даты с {values_to_db[0][0].strftime('%Y-%m-%d')} по {values_to_db[-1][0].strftime('%Y-%m-%d')}"
+            )
+
+        hook = PostgresHook(postgres_conn_id='pg_database')
+        conn = hook.get_conn()
+        cursor = conn.cursor()
+
+        for date, value in values_to_db:
+
+            # Проверка существования записи
+            cursor.execute("""
+                SELECT 1 FROM economic.currency_rates 
+                WHERE date = %s AND currency = %s
+            """, (execution_date, currency))
+
+            if cursor.fetchone():
+                logger.warning("Курс по %s на дату %s уже содержится в БД", currency, execution_date)
+            else:
+                cursor.execute("""
+                    INSERT INTO economic.currency_rates (date, currency, value)
+                    VALUES (%s, %s, %s)
+                """, (execution_date, currency, value))
+                logger.info("Записано значение %.2f для %s на %s", value, currency, execution_date)
+
+        conn.commit()
     
     fetched_data = fetch_inter_reserves_data(execution_date="{{ execution_date }}")
 
