@@ -9,6 +9,8 @@ from dateutil.relativedelta import relativedelta
 from airflow.decorators import dag, task
 from airflow.hooks.postgres_hook import PostgresHook
 
+import time
+
 # Логгер
 logger = logging.getLogger(__name__)
 
@@ -16,7 +18,7 @@ logger = logging.getLogger(__name__)
 @dag(
     dag_id='rf_inter_reserves',
     schedule_interval='@monthly',
-    start_date=dt.datetime(2000, 1, 1),
+    start_date=dt.datetime(2000, 2, 1),
     catchup=True,
     default_args={
         'owner': 'airflow',
@@ -31,6 +33,9 @@ def inter_reserves():
 
     @task()
     def fetch_inter_reserves_data(execution_date: str):
+
+        # ДЛЯ ЗАПОЛНЕНИЯ
+        time.sleep(10)
 
         from_date = dt.datetime.fromisoformat(execution_date) + relativedelta(months=-1)
         to_date = dt.datetime.fromisoformat(execution_date) + relativedelta(days=-1)
@@ -57,7 +62,7 @@ def inter_reserves():
   </soap:Body>
 </soap:Envelope>"""
 
-        logger.info(f'Тело запроса {body}')
+        logger.info(f'Тело запроса\n{body}')
 
         response = requests.post(url, data=body, headers=headers)
         response.raise_for_status()
@@ -88,8 +93,6 @@ def inter_reserves():
 
         logging.info(f'Датафрейм создан {df.to_dict()}')
 
-
-
         # При желании можно преобразовать колонку "Дата" в datetime
         # df['Дата'] = pd.to_datetime(df['Дата'])
 
@@ -102,13 +105,15 @@ def inter_reserves():
         :param data: словарь c данными из датафрейма
         """
 
+        logging.info(f'Датафрейм получен {data}')
+
         values_to_db = [
-            (dt.datetime.fromisoformat(data['Дата'][i]).date(),
-             data['Значение'][i]) for i in range(len(data['Дата']))
+            (dt.datetime.fromisoformat(data['Дата'][str(i)]).date(), data['Значение'][str(i)]) for i in range(len(data['Дата']))
             ]
 
         logger.info(
-            f"Получены данные на даты с {values_to_db[0][0].strftime('%Y-%m-%d')} по {values_to_db[-1][0].strftime('%Y-%m-%d')}"
+            f"Получены данные на даты с {values_to_db[0][0].strftime('%Y-%m-%d')}\
+             по {values_to_db[-1][0].strftime('%Y-%m-%d')}"
             )
 
         hook = PostgresHook(postgres_conn_id='pg_database')
@@ -117,26 +122,25 @@ def inter_reserves():
 
         for date, value in values_to_db:
 
-            # СОЗДАТЬ ТАБЛИЦУ И ДОПИСАТЬ ЭКСПОРТ
-
             # Проверка существования записи
             cursor.execute("""
-                SELECT 1 FROM economic.currency_rates 
-                WHERE date = %s AND currency = %s
-            """, (execution_date, currency))
+                SELECT 1 FROM economic.rf_inter_reserves 
+                WHERE date = %s
+            """, (date,))
 
             if cursor.fetchone():
-                logger.warning("Курс по %s на дату %s уже содержится в БД", currency, execution_date)
+                logger.warning(f"Данные на дату {date} уже содержатся в БД")
             else:
                 cursor.execute("""
-                    INSERT INTO economic.currency_rates (date, currency, value)
-                    VALUES (%s, %s, %s)
-                """, (execution_date, currency, value))
-                logger.info("Записано значение %.2f для %s на %s", value, currency, execution_date)
+                    INSERT INTO economic.rf_inter_reserves (date, value)
+                    VALUES (%s, %s)
+                """, (date, value))
+                logger.info("Записано значение %.2f на дату %s", value, date)
 
         conn.commit()
     
     fetched_data = fetch_inter_reserves_data(execution_date="{{ execution_date }}")
+    save_data_to_db(fetched_data)
 
 # Регистрация DAG
 dag = inter_reserves()
