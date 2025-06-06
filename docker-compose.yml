@@ -3,9 +3,9 @@ services:
     container_name: airflow-postgres
     image: postgres:13
     environment:
-      POSTGRES_USER: airflow
-      POSTGRES_PASSWORD: airflow
-      POSTGRES_DB: airflow
+      POSTGRES_USER: ${POSTGRES_USER_airflow}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD_airflow}
+      POSTGRES_DB: ${POSTGRES_DB_airflow}
     ports:
       - "5432:5432"
     volumes:
@@ -20,9 +20,9 @@ services:
     container_name: superset-postgres
     image: postgres:13
     environment:
-      POSTGRES_USER: superset
-      POSTGRES_PASSWORD: superset
-      POSTGRES_DB: superset
+      POSTGRES_USER: ${POSTGRES_USER_superset}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD_superset}
+      POSTGRES_DB: ${POSTGRES_DB_superset}
     ports:
       - "5433:5432"
     volumes:
@@ -39,7 +39,7 @@ services:
     user: "${AIRFLOW_UID:-0}:0"
     environment:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-postgres/airflow
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${POSTGRES_USER_airflow}:${POSTGRES_PASSWORD_airflow}@airflow-postgres/${POSTGRES_DB_airflow}
       - AIRFLOW__WEBSERVER__WEB_SERVER_PORT=8080
       - AIRFLOW__CORE__PYTHON_PATH=/opt/airflow/utils
     volumes:
@@ -62,7 +62,7 @@ services:
     environment:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__SCHEDULER__MAX_CATCHUP_RUNS=2000
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-postgres/airflow
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${POSTGRES_USER_airflow}:${POSTGRES_PASSWORD_airflow}@airflow-postgres/${POSTGRES_DB_airflow}
       - AIRFLOW__CORE__PYTHON_PATH=/opt/airflow/utils
     volumes:
       - ./dags:/opt/airflow/dags
@@ -79,8 +79,8 @@ services:
     container_name: superset
     image: apache/superset:latest
     environment:
-      SUPERSET_SECRET_KEY: 'lbjBNHfzy8LzzCGkygsJGFZK6lM+wFEscyN3vnXoftDIzeHVXvNZbWaN'
-      SUPERSET_DATABASE_URI: 'postgresql+psycopg2://superset:superset@superset-postgres/superset'
+      SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY}
+      SUPERSET_DATABASE_URI: postgresql+psycopg2://${POSTGRES_USER_superset}:${POSTGRES_PASSWORD_superset}@superset-postgres/${POSTGRES_DB_superset}
     ports:
       - "8088:8088"
     depends_on:
@@ -91,7 +91,7 @@ services:
       bash -c "
         pip install psycopg2-binary &&
         superset db upgrade &&
-        superset fab create-admin --username admin --firstname Superset --lastname Admin --email admin@superset.com --password admin || true &&
+        superset fab create-admin --username admin --firstname Superset --lastname Admin --email admin@superset.com --password ${SUPERSET_ADMIN_PASSWORD} || true &&
         superset init &&
         /usr/bin/run-server.sh
       "
@@ -106,8 +106,8 @@ services:
     volumes:
       - ~/data/minio:/data
     environment:
-      - MINIO_ROOT_USER=admin
-      - MINIO_ROOT_PASSWORD=password123456
+      - MINIO_ROOT_USER=${MINIO_ROOT_USER}
+      - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}
     command: server /data --console-address :9001
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
