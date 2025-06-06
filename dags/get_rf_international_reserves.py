@@ -1,7 +1,6 @@
 import requests
 import logging
 import pandas as pd
-import json
 import xml.etree.ElementTree as ET
 import datetime as dt
 from dateutil.relativedelta import relativedelta
@@ -32,7 +31,7 @@ logger = logging.getLogger(__name__)
 def inter_reserves():
 
     @task()
-    def fetch_inter_reserves_data(execution_date: str):
+    def fetch_data_from_api(execution_date: str):
 
         # ДЛЯ ЗАПОЛНЕНИЯ
         time.sleep(10)
@@ -139,7 +138,7 @@ def inter_reserves():
 
         conn.commit()
     
-    fetched_data = fetch_inter_reserves_data(execution_date="{{ execution_date }}")
+    fetched_data = fetch_data_from_api(execution_date="{{ execution_date }}")
     save_data_to_db(fetched_data)
 
 # Регистрация DAG
