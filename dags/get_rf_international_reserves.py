@@ -117,6 +117,8 @@ def inter_reserves():
 
         for date, value in values_to_db:
 
+            # СОЗДАТЬ ТАБЛИЦУ И ДОПИСАТЬ ЭКСПОРТ
+
             # Проверка существования записи
             cursor.execute("""
                 SELECT 1 FROM economic.currency_rates 

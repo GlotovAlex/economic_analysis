@@ -7,3 +7,8 @@ CREATE TABLE IF NOT EXISTS economic.currency_rates (
     CONSTRAINT usd_to_rub_rates_date_currency_key UNIQUE (date, currency)
 );
 
+CREATE TABLE IF NOT EXISTS economic.rf_inter_reserves (
+	"date" DATE NOT NULL,
+	value NUMERIC(10, 2) NOT NULL,
+	CONSTRAINT rf_inter_reserves_date_key UNIQUE (date)
+);
