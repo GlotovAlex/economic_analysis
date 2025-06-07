@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 @dag(
     dag_id='get_inflation_key_rate',
     schedule_interval='@monthly',
-    start_date=dt.datetime(2000, 1, 1),
+    start_date=dt.datetime(2013, 3, 1),
     catchup=True,
     default_args={
         'owner': 'airflow',
@@ -32,79 +32,122 @@ def rate_dag():
     @task()
     def fetch_data_from_api(execution_date: str):
         """
-        Получает данные по указанным валютам за одну дату
+        Получает данные по инфляции, целевой инфляции и ключевой ставке ЦБ РФ
         """
 
-        logger.info(f'Запрос данных для валют {Variable.get("currencies")}')
-
-        # Получение переменной
-        try:
-            currencies = Variable.get("currencies")
-        except Exception as e:
-            raise ValueError("Ошибка получения переменной 'currencies'") from e
+        from_date = dt.datetime.fromisoformat(execution_date) + relativedelta(months=-2)
+        to_date = dt.datetime.fromisoformat(execution_date) + relativedelta(months=-1, days=-1)
 
         # Дата выполнения
         execution_date = dt.datetime.fromisoformat(execution_date)
         
-        # Словарь для сбора данных
-        data = {
-            'date': execution_date.date(),
-            'content': list()
+        logger.info(f'Получение данных за даты с {from_date} по {to_date}')
+
+        # Рабочий URL сервиса
+        url = "http://www.cbr.ru/secinfo/secinfo.asmx"
+
+        # Заголовки
+        headers = {
+            "Content-Type": "text/xml; charset=utf-8",
+            "SOAPAction": '"http://web.cbr.ru/Inflation"',
+            "User-Agent": "Mozilla/5.0"  # Имитация браузера
+            }
+        
+        body = f"""<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <Inflation xmlns="http://web.cbr.ru/">
+      <DateFrom>{from_date.strftime('%Y-%m-%d')}</DateFrom>
+      <DateTo>{to_date.strftime('%Y-%m-%d')}</DateTo>
+    </Inflation>
+  </soap:Body>
+</soap:Envelope>"""
+
+        logger.info(f'Тело запроса\n{body}')
+
+        response = requests.post(url, data=body, headers=headers)
+    
+        result_xml = response.content
+
+        # Пространства имён
+        ns = {
+            'soap': 'http://schemas.xmlsoap.org/soap/envelope/',
+            'cb': 'http://web.cbr.ru/',
+            'diffgr': 'urn:schemas-microsoft-com:xml-diffgram-v1',
+            'xs': 'http://www.w3.org/2001/XMLSchema'
         }
 
-        # Получение данных через API за указанную дату
-        date_str = execution_date.strftime("%d/%m/%Y")
-        logger.info(f"Запрос данных осуществляется на дату: {date_str}")
+        # Парсим XML
+        root = ET.fromstring(result_xml)
 
-        url = f"http://www.cbr.ru/scripts/XML_daily.asp?date_req={date_str}"
-        response = requests.get(url)
-        response.raise_for_status()
+        # Находим секцию InflationResult -> diffgram -> Infl
+        inflation_result = root.find('.//cb:InflationResult', ns)
+        diffgram = inflation_result.find('.//diffgr:diffgram', ns)
+        infl = diffgram.find('Infl', ns)  # Внутри diffgram лежит Infl
 
-        xml_data = response.text
+        # Собираем данные
+        rows = []
+        for ri in infl.findall('RI'):
+            dts = ri.find('DTS').text if ri.find('DTS') is not None else None
+            key_rate = ri.find('KeyRate').text if ri.find('KeyRate') is not None else None
+            inf_val = ri.find('infVal').text if ri.find('infVal') is not None else None
+            aim_val = ri.find('AimVal').text if ri.find('AimVal') is not None else None
 
-        root = ET.fromstring(xml_data)
-        for valute in root.findall('Valute'):
-            CharCode = valute.find('CharCode').text
-            if CharCode in currencies:
-                value = float(valute.find('VunitRate').text.replace(',', '.'))
-                data['content'].append({CharCode: value})
+            rows.append({
+                'Дата': dts,
+                'Ключевая ставка, % годовых': float(key_rate) if key_rate else None,
+                'Инфляция, % г/г': float(inf_val) if inf_val else None,
+                'Цель по инфляции, %': float(aim_val) if aim_val else None
+            })
 
-        return data
+        return rows
     
     @task()
     def save_data_to_db(data):
         """
-        Сохраняет данные по нескольким валютам за одну дату в БД
-        :param data: словарь с ключами 'date' и 'content'
+        Сохраняет данные в БД
+        :param data: словарь c данными из датафрейма
         """
 
-        execution_date = data['date']
-        rates = data['content']
+        logging.info(f'Полученные данные {data}')
 
-        logger.info(f"Получены курсы валют: {data['content']} на дату {execution_date}")
+        values_to_db = [
+            (
+                dt.datetime.strptime(row['Дата'], '%m.%Y'),
+                row['Ключевая ставка, % годовых'],
+                row['Цель по инфляции, %'],
+                row['Инфляция, % г/г']
+            )
+            for row in data
+        ]
+
+        dates = [el[0] for el in values_to_db]
+
+        logger.info(
+            f"Получены данные на даты с {min(dates).strftime('%Y-%m-%d')}"
+            f" по {max(dates).strftime('%Y-%m-%d')}"
+            )
 
         hook = PostgresHook(postgres_conn_id='pg_database')
         conn = hook.get_conn()
         cursor = conn.cursor()
 
-        for rate_dict in rates:
-            
-            currency, value = next(iter(rate_dict.items()))
+        for date, key_rate, inflation_target, inflation in values_to_db:
 
             # Проверка существования записи
             cursor.execute("""
-                SELECT 1 FROM economic.currency_rates 
-                WHERE date = %s AND currency = %s
-            """, (execution_date, currency))
+                SELECT 1 FROM economic.inflation_key_rate 
+                WHERE date = %s
+            """, (date,))
 
             if cursor.fetchone():
-                logger.warning("Курс по %s на дату %s уже содержится в БД", currency, execution_date)
+                logger.warning(f"Данные на дату {date} уже содержатся в БД")
             else:
                 cursor.execute("""
-                    INSERT INTO economic.currency_rates (date, currency, value)
-                    VALUES (%s, %s, %s)
-                """, (execution_date, currency, value))
-                logger.info("Записано значение %.2f для %s на %s", value, currency, execution_date)
+                    INSERT INTO economic.inflation_key_rate (date, key_rate, inflation_target, inflation)
+                    VALUES (%s, %s, %s, %s)
+                """, (date, key_rate, inflation_target, inflation))
+                logger.info("Записано значение на дату %s", date)
 
         conn.commit()
 

@@ -12,3 +12,11 @@ CREATE TABLE IF NOT EXISTS economic.rf_inter_reserves (
 	value NUMERIC(10, 2) NOT NULL,
 	CONSTRAINT rf_inter_reserves_date_key UNIQUE (date)
 );
+
+CREATE TABLE IF NOT EXISTS economic.inflation_key_rate (
+	"date" date NOT NULL,
+	inflation numeric(6, 2) NULL,
+	inflation_target numeric(6, 2) NULL,
+	key_rate numeric(6, 2) NULL,
+	CONSTRAINT inflation_key_rate_date_key UNIQUE (date)
+);

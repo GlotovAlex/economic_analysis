@@ -32,6 +32,10 @@ def inter_reserves():
 
     @task()
     def fetch_data_from_api(execution_date: str):
+        """
+        Получает еженедельные данные по международным резервам РФ
+        за один месяц
+        """
 
         # ДЛЯ ЗАПОЛНЕНИЯ
         time.sleep(10)
@@ -100,7 +104,7 @@ def inter_reserves():
     @task()
     def save_data_to_db(data):
         """
-        Сохраняет данные по нескольким в БД
+        Сохраняет данные в БД
         :param data: словарь c данными из датафрейма
         """
 
@@ -111,8 +115,8 @@ def inter_reserves():
             ]
 
         logger.info(
-            f"Получены данные на даты с {values_to_db[0][0].strftime('%Y-%m-%d')}\
-             по {values_to_db[-1][0].strftime('%Y-%m-%d')}"
+            f"Получены данные на даты с {values_to_db[0][0].strftime('%Y-%m-%d')}"
+            f" по {values_to_db[-1][0].strftime('%Y-%m-%d')}"
             )
 
         hook = PostgresHook(postgres_conn_id='pg_database')
