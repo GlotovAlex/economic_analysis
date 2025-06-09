@@ -20,3 +20,9 @@ CREATE TABLE IF NOT EXISTS economic.inflation_key_rate (
 	key_rate numeric(6, 2) NULL,
 	CONSTRAINT inflation_key_rate_date_key UNIQUE (date)
 );
+
+CREATE TABLE IF NOT EXISTS economic.gold_cost (
+	"date" date NOT NULL,
+	value numeric(6, 2) NULL,
+	CONSTRAINT inflation_key_rate_date_key UNIQUE (date)
+);

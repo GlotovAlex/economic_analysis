@@ -37,9 +37,6 @@ def rate_dag():
 
         from_date = dt.datetime.fromisoformat(execution_date) + relativedelta(months=-2)
         to_date = dt.datetime.fromisoformat(execution_date) + relativedelta(months=-1, days=-1)
-
-        # Дата выполнения
-        execution_date = dt.datetime.fromisoformat(execution_date)
         
         logger.info(f'Получение данных за даты с {from_date} по {to_date}')
 

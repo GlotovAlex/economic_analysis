@@ -1,9 +1,7 @@
 import yfinance as yf
-import requests
 import logging
 import datetime as dt
 import pandas as pd
-import xml.etree.ElementTree as ET
 from dateutil.relativedelta import relativedelta
 
 from airflow.decorators import dag, task
@@ -17,14 +15,14 @@ logger = logging.getLogger(__name__)
 @dag(
     dag_id='gold_value',
     schedule_interval='@daily',
-    start_date=dt.datetime(2013, 3, 1),
+    start_date=dt.datetime(2000, 8, 31),
     catchup=True,
     default_args={
         'owner': 'airflow',
         'retries': 2,
         'retry_delay': dt.timedelta(seconds=10),
     },
-    tags=['other'],
+    tags=['commodities'],
 )
 
 def gold_value_dag():
@@ -32,73 +30,31 @@ def gold_value_dag():
     @task()
     def fetch_data_from_api(execution_date: str):
         """
-        Получает данные по инфляции, целевой инфляции и ключевой ставке ЦБ РФ
+        Получает данные по стоимости золота на момент закрытия в долларах
         """
 
-        from_date = dt.datetime.fromisoformat(execution_date) + relativedelta(months=-2)
-        to_date = dt.datetime.fromisoformat(execution_date) + relativedelta(months=-1, days=-1)
+        from_date = dt.datetime.fromisoformat(execution_date) + relativedelta(days=-1)
+        to_date = dt.datetime.fromisoformat(execution_date)
 
         # Дата выполнения
         execution_date = dt.datetime.fromisoformat(execution_date)
         
         logger.info(f'Получение данных за даты с {from_date} по {to_date}')
 
-        # Рабочий URL сервиса
-        url = "http://www.cbr.ru/secinfo/secinfo.asmx"
+        data = yf.download("GC=F", start=from_date.strftime("%Y-%m-%d"), end=to_date.strftime("%Y-%m-%d"))
 
-        # Заголовки
-        headers = {
-            "Content-Type": "text/xml; charset=utf-8",
-            "SOAPAction": '"http://web.cbr.ru/Inflation"',
-            "User-Agent": "Mozilla/5.0"  # Имитация браузера
-            }
-        
-        body = f"""<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <Inflation xmlns="http://web.cbr.ru/">
-      <DateFrom>{from_date.strftime('%Y-%m-%d')}</DateFrom>
-      <DateTo>{to_date.strftime('%Y-%m-%d')}</DateTo>
-    </Inflation>
-  </soap:Body>
-</soap:Envelope>"""
+        if len(data) == 1:
+            values = (data.index[0], round(data['Close'].values[0][0], 4))
 
-        logger.info(f'Тело запроса\n{body}')
+            logger.info(f'Стоимость золота на дату {values[0].strftime("%Y-%m-%d")} ${values[1]}')
 
-        response = requests.post(url, data=body, headers=headers)
-    
-        result_xml = response.content
+            return values
 
-        # Пространства имён
-        ns = {
-            'soap': 'http://schemas.xmlsoap.org/soap/envelope/',
-            'cb': 'http://web.cbr.ru/',
-            'diffgr': 'urn:schemas-microsoft-com:xml-diffgram-v1',
-            'xs': 'http://www.w3.org/2001/XMLSchema'
-        }
+        else:
 
-        # Парсим XML
-        root = ET.fromstring(result_xml)
-
-        # Находим секцию InflationResult -> diffgram -> Infl
-        inflation_result = root.find('.//cb:InflationResult', ns)
-        diffgram = inflation_result.find('.//diffgr:diffgram', ns)
-        infl = diffgram.find('Infl', ns)  # Внутри diffgram лежит Infl
-
-        # Собираем данные
-        rows = []
-        for ri in infl.findall('RI'):
-            dts = ri.find('DTS').text if ri.find('DTS') is not None else None
-            key_rate = ri.find('KeyRate').text if ri.find('KeyRate') is not None else None
-            inf_val = ri.find('infVal').text if ri.find('infVal') is not None else None
-            aim_val = ri.find('AimVal').text if ri.find('AimVal') is not None else None
-
-            rows.append({
-                'Дата': dts,
-                'Ключевая ставка, % годовых': float(key_rate) if key_rate else None,
-                'Инфляция, % г/г': float(inf_val) if inf_val else None,
-                'Цель по инфляции, %': float(aim_val) if aim_val else None
-            })
+            logger.warning(f'На дату {from_date} запрос вернул {len(data)} строк')
+            
+            return
 
         # return rows
     
