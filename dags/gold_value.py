@@ -10,7 +10,6 @@ from airflow.hooks.postgres_hook import PostgresHook
 # Логгер
 logger = logging.getLogger(__name__)
 
-
 # Определение DAG с помощью декоратора @dag
 @dag(
     dag_id='gold_value',
@@ -44,73 +43,55 @@ def gold_value_dag():
         data = yf.download("GC=F", start=from_date.strftime("%Y-%m-%d"), end=to_date.strftime("%Y-%m-%d"))
 
         if len(data) == 1:
-            values = (data.index[0], round(data['Close'].values[0][0], 4))
+            values = (str(data.index[0].date()), round(data['Close'].values[0][0], 4))
 
-            logger.info(f'Стоимость золота на дату {values[0].strftime("%Y-%m-%d")} ${values[1]}')
+            logger.info(f'Стоимость золота на дату {values[0]} ${values[1]}')
 
             return values
 
-        else:
-
+        else:         
             logger.warning(f'На дату {from_date} запрос вернул {len(data)} строк')
-            
-            return
 
-        # return rows
+            return None
     
-    # @task()
-    # def save_data_to_db(data):
-    #     """
-    #     Сохраняет данные в БД
-    #     :param data: словарь c данными из датафрейма
-    #     """
+    @task()
+    def save_data_to_db(values):
+        """
+        Сохраняет данные в БД
+        :param data: кортеж вида (date:str, value:float)
+        """
 
-    #     logging.info(f'Полученные данные {data}')
+        # Проверка на наличие полученных данных
+        if not values:
+            logger.info('Нет данных для записи в БД')
+            return 
 
-    #     values_to_db = [
-    #         (
-    #             dt.datetime.strptime(row['Дата'], '%m.%Y'),
-    #             row['Ключевая ставка, % годовых'],
-    #             row['Цель по инфляции, %'],
-    #             row['Инфляция, % г/г']
-    #         )
-    #         for row in data
-    #     ]
+        date, value = values
 
-    #     dates = [el[0] for el in values_to_db]
+        hook = PostgresHook(postgres_conn_id='pg_database')
+        conn = hook.get_conn()
+        cursor = conn.cursor()
+        
+        # Проверка существования записи
+        cursor.execute("""
+            SELECT 1 FROM economic.gold_cost 
+            WHERE date = %s
+        """, (date,))
 
-    #     logger.info(
-    #         f"Получены данные на даты с {min(dates).strftime('%Y-%m-%d')}"
-    #         f" по {max(dates).strftime('%Y-%m-%d')}"
-    #         )
+        if cursor.fetchone():
+            logger.warning(f"Данные на дату {date} уже содержатся в БД")
+        else:
+            cursor.execute("""
+                INSERT INTO economic.gold_cost (date, value)
+                VALUES (%s, %s)
+            """, (date, value))
+            logger.info("Записано значение на дату %s", date)
 
-    #     hook = PostgresHook(postgres_conn_id='pg_database')
-    #     conn = hook.get_conn()
-    #     cursor = conn.cursor()
-
-    #     for date, key_rate, inflation_target, inflation in values_to_db:
-
-    #         # Проверка существования записи
-    #         cursor.execute("""
-    #             SELECT 1 FROM economic.inflation_key_rate 
-    #             WHERE date = %s
-    #         """, (date,))
-
-    #         if cursor.fetchone():
-    #             logger.warning(f"Данные на дату {date} уже содержатся в БД")
-    #         else:
-    #             cursor.execute("""
-    #                 INSERT INTO economic.inflation_key_rate (date, key_rate, inflation_target, inflation)
-    #                 VALUES (%s, %s, %s, %s)
-    #             """, (date, key_rate, inflation_target, inflation))
-    #             logger.info("Записано значение на дату %s", date)
-
-    #     conn.commit()
+        conn.commit()
 
     # Установка зависимостей
     fetched_data = fetch_data_from_api(execution_date="{{ execution_date }}")
-    # save_data_to_db(fetched_data)
-
+    save_data_to_db(fetched_data)
 
 # Регистрация DAG
 rate_dag = gold_value_dag()
