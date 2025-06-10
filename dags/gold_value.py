@@ -1,7 +1,6 @@
 import yfinance as yf
 import logging
 import datetime as dt
-import pandas as pd
 from dateutil.relativedelta import relativedelta
 
 from airflow.decorators import dag, task
@@ -34,9 +33,6 @@ def gold_value_dag():
 
         from_date = dt.datetime.fromisoformat(execution_date) + relativedelta(days=-1)
         to_date = dt.datetime.fromisoformat(execution_date)
-
-        # Дата выполнения
-        execution_date = dt.datetime.fromisoformat(execution_date)
         
         logger.info(f'Получение данных за даты с {from_date} по {to_date}')
 
@@ -90,8 +86,8 @@ def gold_value_dag():
         conn.commit()
 
     # Установка зависимостей
-    fetched_data = fetch_data_from_api(execution_date="{{ execution_date }}")
+    fetched_data = fetch_data_from_api(execution_date="{{ logical_date }}")
     save_data_to_db(fetched_data)
 
 # Регистрация DAG
-rate_dag = gold_value_dag()
+dag = gold_value_dag()

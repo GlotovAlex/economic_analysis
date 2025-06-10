@@ -1,7 +1,6 @@
 import requests
 import logging
 import datetime as dt
-import pandas as pd
 import xml.etree.ElementTree as ET
 from dateutil.relativedelta import relativedelta
 
@@ -27,7 +26,7 @@ logger = logging.getLogger(__name__)
     max_active_runs=1,
 )
 
-def rate_dag():
+def inflation_dag():
 
     @task()
     def fetch_data_from_api(execution_date: str):
@@ -149,9 +148,9 @@ def rate_dag():
         conn.commit()
 
     # Установка зависимостей
-    fetched_data = fetch_data_from_api(execution_date="{{ execution_date }}")
+    fetched_data = fetch_data_from_api(execution_date="{{ logical_date }}")
     save_data_to_db(fetched_data)
 
 
 # Регистрация DAG
-rate_dag = rate_dag()
+dag = inflation_dag()

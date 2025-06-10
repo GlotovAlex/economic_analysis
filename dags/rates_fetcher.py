@@ -1,8 +1,6 @@
 import requests
 import logging
 import datetime as dt
-import pandas as pd
-import json
 import xml.etree.ElementTree as ET
 
 from airflow.models import Variable
@@ -109,9 +107,9 @@ def rate_dag():
         conn.commit()
 
     # Установка зависимостей
-    fetched_data = fetch_data_from_api(execution_date="{{ execution_date }}")
+    fetched_data = fetch_data_from_api(execution_date="{{ logical_date }}")
     save_data_to_db(fetched_data)
 
 
 # Регистрация DAG
-rate_dag = rate_dag()
+dag = rate_dag()
