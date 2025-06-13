@@ -1,0 +1,58 @@
+databases:
+- allow_ctas: true
+  allow_dml: true
+  allow_file_upload: true
+  database_name: PostgreSQL
+  sqlalchemy_uri: postgresql+psycopg2://superset:XXXXXXXXXX@superset-postgres/superset
+  tables:
+  - catalog: superset
+    columns:
+    - column_name: date
+      is_dttm: true
+      type: DATE
+    - column_name: inflation_target
+      type: NUMERIC(6, 2)
+    - column_name: key_rate
+      type: NUMERIC(6, 2)
+    - column_name: inflation
+      type: NUMERIC(6, 2)
+    main_dttm_col: date
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: economic
+    table_name: inflation_key_rate
+  - catalog: superset
+    columns:
+    - column_name: date
+      is_dttm: true
+      type: DATE
+    - column_name: value
+      type: NUMERIC(10, 4)
+    - column_name: currency
+      type: VARCHAR(100)
+    main_dttm_col: date
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: economic
+    table_name: currency_rates
+  - catalog: superset
+    columns:
+    - column_name: date
+      is_dttm: true
+      type: DATE
+    - column_name: value
+      type: NUMERIC(10, 2)
+    main_dttm_col: date
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: economic
+    table_name: rf_inter_reserves

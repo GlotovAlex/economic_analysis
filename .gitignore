@@ -3,5 +3,6 @@
 /junkyard
 /tgbot
 /logs
+/data
 *.pyc
 .env
